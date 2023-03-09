@@ -1,0 +1,13 @@
+# Import cache
+.import/
+
+# Binaries
+bin/
+build/
+lib/
+
+# Krita
+*.kra
+
+# What ever this thing is...
+*~
