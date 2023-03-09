@@ -12,7 +12,7 @@ config_version=4
 
 config/name="animuJump2"
 run/main_scene="res://scenes/Forest.tscn"
-config/icon="res://icon.png"
+config/icon="res://media/animu_run_icon.png"
 
 [autoload]
 
