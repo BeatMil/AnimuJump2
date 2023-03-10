@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://media/sprites/kaisouko_look.png" type="Texture" id=1]
 [ext_resource path="res://media/sprites/chiichan_run.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Boukengo.gd" type="Script" id=3]
-[ext_resource path="res://Nodes/Tree.tscn" type="PackedScene" id=4]
+[ext_resource path="res://media/sprites/mountain.png" type="Texture" id=4]
 [ext_resource path="res://media/sprites/ground.png" type="Texture" id=5]
+[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=6]
+[ext_resource path="res://scripts/ParallaxLayerAuto.gd" type="Script" id=7]
+[ext_resource path="res://media/sprites/clouds.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -178,8 +181,7 @@ tracks/0/keys = {
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
-
-[node name="Tree" parent="." instance=ExtResource( 4 )]
+script = ExtResource( 6 )
 
 [node name="Ground" type="Sprite" parent="."]
 position = Vector2( 1895, 1074 )
@@ -212,3 +214,22 @@ root_node = NodePath("../Spritesheet")
 autoplay = "intro"
 anims/RESET = SubResource( 6 )
 anims/intro = SubResource( 7 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1920, 0 )
+script = ExtResource( 7 )
+
+[node name="Mountain" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1034, 680 )
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1920, 0 )
+script = ExtResource( 7 )
+SPEED = -200
+
+[node name="Clouds" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 961, 543 )
+texture = ExtResource( 8 )

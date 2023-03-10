@@ -8,6 +8,76 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "DiscordRPC",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/DiscordRPC.gd"
+}, {
+"base": "Reference",
+"class": "DiscordRPCEnum",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/DiscordRPCEnum.gd"
+}, {
+"base": "Reference",
+"class": "DiscordRPCUtil",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/RPC.gd"
+}, {
+"base": "Reference",
+"class": "IPCUtil",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/util/IPCUtil.gd"
+}, {
+"base": "Reference",
+"class": "RichPresence",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/RichPresence.gd"
+}, {
+"base": "Reference",
+"class": "RichPresenceButton",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/RichPresenceButton.gd"
+}, {
+"base": "",
+"class": "RichPresenceModule",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/RichPreseneModule.gd"
+}, {
+"base": "",
+"class": "StreamPeerUnix",
+"language": "NativeScript",
+"path": "res://addons/godot-unix-socket/unix-socket.gdns"
+}, {
+"base": "Reference",
+"class": "URLUtil",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/util/URLUtil.gd"
+}, {
+"base": "Reference",
+"class": "UUID",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/util/UUID.gd"
+}, {
+"base": "",
+"class": "UpdateRichPresencePayload",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/UpdateRichPresencePayload.gd"
+} ]
+_global_script_class_icons={
+"DiscordRPC": "",
+"DiscordRPCEnum": "",
+"DiscordRPCUtil": "",
+"IPCUtil": "",
+"RichPresence": "",
+"RichPresenceButton": "",
+"RichPresenceModule": "",
+"StreamPeerUnix": "",
+"URLUtil": "",
+"UUID": "",
+"UpdateRichPresencePayload": ""
+}
+
 [application]
 
 config/name="animuJump2"
@@ -18,6 +88,10 @@ config/icon="res://media/animu_run_icon.png"
 
 Keybind="*res://scripts/keybind.gd"
 
+[discord_presence]
+
+first_button/label="Best Game Engine XD"
+
 [display]
 
 window/size/width=1920
@@ -25,9 +99,9 @@ window/size/height=1080
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
-[global]
+[editor_plugins]
 
-fps=false
+enabled=PoolStringArray( "res://addons/godot_editor_discord_presence/plugin.cfg" )
 
 [gui]
 
@@ -39,4 +113,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.423529, 0.486275, 0.494118, 1 )
 environment/default_environment="res://default_env.tres"
