@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://media/sprites/kaisouko_look.png" type="Texture" id=1]
 [ext_resource path="res://media/sprites/chiichan_run.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scripts/ParallaxLayerAuto.gd" type="Script" id=7]
 [ext_resource path="res://media/sprites/clouds.png" type="Texture" id=8]
 [ext_resource path="res://media/sprites/sword_swing.png" type="Texture" id=9]
+[ext_resource path="res://media/sprites/sword_attack01_b.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -158,6 +159,46 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -100 ), Vector2( 0, -100 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "attack01_b"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0833333, 0.166667, 0.25, 0.5, 0.666667, 0.833333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
 [sub_resource type="Animation" id=3]
 resource_name = "hopping"
 length = 0.4
@@ -264,6 +305,7 @@ hframes = 4
 root_node = NodePath("../Spritesheet")
 anims/RESET = SubResource( 1 )
 anims/attack01 = SubResource( 8 )
+anims/attack01_b = SubResource( 9 )
 anims/hopping = SubResource( 3 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Chiichan"]
