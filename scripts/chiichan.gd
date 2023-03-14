@@ -14,7 +14,10 @@ func _input(event):
 	if event.is_action_pressed("attack02"):
 		anim_player.play("attack01_b")
 
+	if event.is_action_pressed("attack03"):
+		anim_player.play("attack01_c")
+
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "attack01" or anim_name == "attack01_b":
+	if anim_name == "attack01" or anim_name == "attack01_b" or anim_name == "attack01_c":
 		anim_player.play("hopping", -1 , 0.8)
