@@ -1,7 +1,12 @@
 extends RigidBody2D
 
-var speed = -300
+# config
+var speed = -1200
 var is_moving = true
+
+
+# Signal
+signal ded
 
 
 func _ready():
@@ -19,7 +24,15 @@ func _integrate_forces(_state):
 
 func _on_Slime_body_entered(body: Node):
 	if body.is_in_group("chiichan"):
-		pass
-		is_moving = false
-		apply_impulse(Vector2.ZERO, Vector2(1500, -2000))
-		apply_torque_impulse(500000)
+		hitted()
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	emit_signal("ded")
+	queue_free()
+
+
+func hitted():
+	is_moving = false
+	apply_impulse(Vector2.ZERO, Vector2(1500, -2000))
+	apply_torque_impulse(500000)

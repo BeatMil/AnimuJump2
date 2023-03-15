@@ -10,7 +10,7 @@
 [ext_resource path="res://media/sprites/clouds.png" type="Texture" id=8]
 [ext_resource path="res://media/sprites/sword_swing.png" type="Texture" id=9]
 [ext_resource path="res://media/sprites/sword_attack01_b.png" type="Texture" id=10]
-[ext_resource path="res://nodes/Slime.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/Forest.gd" type="Script" id=11]
 [ext_resource path="res://media/sprites/chiichan_run_attack.png" type="Texture" id=12]
 [ext_resource path="res://media/sfx/sword_attack01.wav" type="AudioStream" id=13]
 [ext_resource path="res://media/sfx/sword_attack02.wav" type="AudioStream" id=14]
@@ -249,6 +249,20 @@ tracks/4/keys = {
 } ],
 "times": PoolRealArray( 0, 0.208333 )
 }
+tracks/5/type = "method"
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.252 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_hitbox01"
+} ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "attack01_c"
@@ -448,6 +462,7 @@ tracks/0/keys = {
 extents = Vector2( 105.5, 167.5 )
 
 [node name="Forest" type="Node2D"]
+script = ExtResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -495,7 +510,7 @@ anims/hitted = SubResource( 13 )
 anims/hopping = SubResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Chiichan/AnimationPlayer"]
-stream = ExtResource( 16 )
+stream = ExtResource( 13 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Chiichan"]
 root_node = NodePath("../Spritesheet")
@@ -507,8 +522,8 @@ anims/intro = SubResource( 7 )
 position = Vector2( 23.5, 9.5 )
 shape = SubResource( 11 )
 
-[node name="Slime" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1372, 770 )
+[node name="Hitbox01Pos" type="Position2D" parent="Chiichan"]
+position = Vector2( 393, -157 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -528,6 +543,9 @@ SPEED = -200
 [node name="Clouds" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2( 961, 543 )
 texture = ExtResource( 8 )
+
+[node name="SpawnPosition2D" type="Position2D" parent="."]
+position = Vector2( 2404, 858 )
 
 [connection signal="body_entered" from="Chiichan" to="Chiichan" method="_on_Chiichan_body_entered"]
 [connection signal="animation_finished" from="Chiichan/AnimationPlayer" to="Chiichan" method="_on_AnimationPlayer_animation_finished"]

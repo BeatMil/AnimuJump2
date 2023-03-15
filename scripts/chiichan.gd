@@ -1,6 +1,13 @@
 extends Node2D
 
+
+# reference
 onready var anim_player = $AnimationPlayer
+
+
+# HITBOX01 and HITBOX01_POS goes together
+const HITBOX01 = preload("res://nodes/hitboxes/attack01_hitbox.tscn")
+onready var HITBOX01_POS = $Hitbox01Pos.position
 
 
 func _ready():
@@ -24,7 +31,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_Chiichan_body_entered(body):
-	print("body: %s"%[body])
-
 	if body.is_in_group("slime"):
 		anim_player.play("hitted")
+
+
+func spawn_hitbox01():
+	var hitbox = HITBOX01.instance()
+	hitbox.position = HITBOX01_POS
+	add_child(hitbox)
