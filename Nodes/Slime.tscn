@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 90, 82.75 )
 
-[node name="Slime" type="RigidBody2D"]
+[node name="Slime" type="RigidBody2D" groups=["slime"]]
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 2 )

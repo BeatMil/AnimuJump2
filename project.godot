@@ -86,7 +86,7 @@ config/icon="res://media/animu_run_icon.png"
 
 [autoload]
 
-Keybind="*res://scripts/keybind.gd"
+Config="*res://scripts/Config.gd"
 
 [discord_presence]
 

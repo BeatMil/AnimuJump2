@@ -19,6 +19,7 @@ func _integrate_forces(_state):
 
 func _on_Slime_body_entered(body: Node):
 	if body.is_in_group("chiichan"):
+		pass
 		is_moving = false
 		apply_impulse(Vector2.ZERO, Vector2(1500, -2000))
 		apply_torque_impulse(500000)

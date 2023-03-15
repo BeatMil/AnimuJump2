@@ -19,5 +19,12 @@ func _input(event):
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "attack01" or anim_name == "attack01_b" or anim_name == "attack01_c":
+	if anim_name == "attack01" or anim_name == "attack01_b" or anim_name == "attack01_c" or anim_name == "hitted" :
 		anim_player.play("hopping", -1 , 0.8)
+
+
+func _on_Chiichan_body_entered(body):
+	print("body: %s"%[body])
+
+	if body.is_in_group("slime"):
+		anim_player.play("hitted")
